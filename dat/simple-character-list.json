@@ -1,0 +1,102 @@
+[
+    {
+        "id": 0,
+        "name": "Daenerys Targaryen",
+        "title": "Mother of Dragons"
+    },
+    {
+        "id": 1,
+        "name": "Samwell Tarly",
+        "title": "Maester"
+    },
+    {
+        "id": 2,
+        "name": "Jon Snow",
+        "title": "King of the North"
+    },
+    {
+        "id": 3,
+        "name": "Arya Stark",
+        "title": "No One"
+    },
+    {
+        "id": 4,
+        "name": "Sansa Stark",
+        "title": "Lady of Winterfell"
+    },
+    {
+        "id": 5,
+        "name": "Brandon Stark",
+        "title": "Lord of Winterfell"
+    },
+    {
+        "id": 6,
+        "name": "Ned Stark",
+        "title": "Lord of Winterfell"
+    },
+    {
+        "id": 7,
+        "name": "Robert Baratheon",
+        "title": "Lord of the Seven Kingdoms"
+    },
+    {
+        "id": 8,
+        "name": "Jamie Lannister",
+        "title": "Lord Commander of the Kingsguard"
+    },
+    {
+        "id": 9,
+        "name": "Cersei Lannister",
+        "title": "Lady of Casterly Rock"
+    },
+    {
+        "id": 10,
+        "name": "Catelyn Stark",
+        "title": "Lady of Winterfell"
+    },
+    {
+        "id": 11,
+        "name": "Rob Stark",
+        "title": "Lord of Winterfell"
+    },
+    {
+        "id": 12,
+        "name": "Theon Greyjoy",
+        "title": "Captain of Sea Bitch"
+    },
+    {
+        "id": 13,
+        "name": "Joffrey Baratheon",
+        "title": "King of the Andals the Rhoynar and the First Men, Lord of the Seven Kingdoms, Protector of the Realm"
+    },
+    {
+        "id": 14,
+        "name": "Tyrion Lannister",
+        "title": "Hand of the Queen"
+    },
+    {
+        "id": 15,
+        "name": "Sandor Clegane",
+        "title": "The Hound"
+    },
+    {
+        "id": 16,
+        "name": "Petyr Baelish",
+        "title": "Littlefinger"
+    },
+    {
+        "id": 17,
+        "name": "Davos Seaworth",
+        "title": "Hand of the King"
+    },
+    {
+        "id": 18,
+        "name": "Stannis Baratheon",
+        "title": "Lord of Dragonstone"
+    },
+    {
+        "id": 19,
+        "name": "Varys",
+        "title": "Master of Whisperers"
+    }
+]
