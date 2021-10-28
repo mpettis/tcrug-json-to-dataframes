@@ -62,25 +62,75 @@ tibble(obj=example_lst) %>%
 #;;=============================================================================
 #;; For presentation
 
+#;; ss-01
 read_json(here::here("dat", "simple-character-list.json")) %>%
     str(list.len=3)
 
-
+#;; ss-02
 read_json(here::here("dat", "simple-character-list.json")) %>%
     as_tibble()
 
+#;; ss-03
+read_json(here::here("dat", "simple-character-list.json")) %>%
+    transpose() %>%
+    str(list.len=3)
+
+#;; ss-03
+read_json(here::here("dat", "simple-character-list.json")) %>%
+    transpose() %>%
+    as_tibble() %>%
+    str(list.len=3)
+
+#;; ss-04
+read_json(here::here("dat", "simple-character-list.json")) %>%
+    transpose() %>%
+    as_tibble() %>%
+    print(n=3)
+
+#;; ss-05
 read_json(here::here("dat", "simple-character-list.json")) %>%
     transpose() %>%
     as_tibble() %>%
     mutate_all(unlist) %>%
     print(n=3)
 
+#;; ss-06
 read_json(here::here("dat", "simple-character-list.json")) %>%
     tibble(obj=.) %>%
     unnest_wider(obj) %>%
     print(n=3)
 
+#;; ss-07
 read_json(here::here("dat", "simple-character-list.json")) %>%
     tibble(obj=.) %>%
     hoist(obj, "title") %>%
+    print(n=3)
+
+
+
+
+#;;=============================================================================
+#;; Gnarly demo
+
+#;; ss-08
+jsonComplex_lst <-
+    read_json(here::here("dat", "complex-json.json"))
+listviewer::jsonedit(jsonComplex_lst)
+
+
+#;; ss-09
+parameters_df <-
+  tibble(obj=jsonComplex_lst) %>%
+  filter(names(obj) == "data") %>%
+  unnest_longer(obj) %>%
+  unnest_wider(obj) %>%
+  select(tisObjectId, parameters) %>%
+  unnest_longer(parameters) %>%
+  unnest_wider(parameters) %>%
+  select(tisObjectId, parameterName=name, values) %>%
+  unnest_longer(values) %>%
+  unnest_wider(values) %>%
+  mutate(value = unlist(value)) %>%
+  pivot_wider(names_from = "parameterName", values_from = "value")
+parameters_df %>%
     print(n=3)

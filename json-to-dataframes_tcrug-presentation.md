@@ -32,108 +32,72 @@ Common JSON Input
 ]
 ```
 
+
 Common JSON Input, parsed by jsonlite
 ========================================================
 
-```
-read_json(here::here("dat", "simple-character-list.json")) %>%
-    str(list.len=3)
 
-List of 20
- $ :List of 3
-  ..$ id   : int 0
-  ..$ name : chr "Daenerys Targaryen"
-  ..$ title: chr "Mother of Dragons"
- $ :List of 3
-  ..$ id   : int 1
-  ..$ name : chr "Samwell Tarly"
-  ..$ title: chr "Maester"
- $ :List of 3
-  ..$ id   : int 2
-  ..$ name : chr "Jon Snow"
-  ..$ title: chr "King of the North"
-  [list output truncated]
-```
+![Input structure](img/ss-00.png)
 
+***
+![Input structure](img/ss-01.png)
 
 
 Common JSON Input, converting to dataframe, simple try
 ========================================================
-```
-read_json(here::here("dat", "simple-character-list.json")) %>%
-    as_tibble()
+From this form, we get an error.
 
-Error: Columns 1, 2, 3, 4, 5, and 15 more must be named.
-Use .name_repair to specify repair.
-Run `rlang::last_error()` to see where the error occurred.
-```
+![Try to parse simply](img/ss-02.png)
+
 
 
 Common JSON Input, converting to dataframe, extra work
 ========================================================
 
-`transpose`, and `mutate`/`unlisting` are clunky.
-```
-read_json(here::here("dat", "simple-character-list.json")) %>%
-    transpose() %>%
-    as_tibble() %>%
-    mutate_all(unlist) %>%
-    print(n=3)
-
-# A tibble: 20 x 3
-     id name               title            
-  <int> <chr>              <chr>            
-1     0 Daenerys Targaryen Mother of Dragons
-2     1 Samwell Tarly      Maester          
-3     2 Jon Snow           King of the North
-# ... with 17 more rows
-```
+![Try the transpose](img/ss-03.png)
 
 
-`tidyr` Rectangling
+Common JSON Input, converting to dataframe, extra work
 ========================================================
 
-We can do this with an API designed for such things:
-
-```
-read_json(here::here("dat", "simple-character-list.json")) %>%
-    tibble(obj=.) %>%
-    unnest_wider(obj) %>%
-    print(n=3)
-
-# A tibble: 20 x 3
-     id name               title            
-  <int> <chr>              <chr>            
-1     0 Daenerys Targaryen Mother of Dragons
-2     1 Samwell Tarly      Maester          
-3     2 Jon Snow           King of the North
-# ... with 17 more rows
-```
+![Try the transpose](img/ss-04.png)
 
 
-
-`tidyr` Rectangling
+Common JSON Input, converting to dataframe, extra work
 ========================================================
 
-We can use the API to just pull out parts we want:
-```
-read_json(here::here("dat", "simple-character-list.json")) %>%
-    tibble(obj=.) %>%
-    hoist(obj, "title") %>%
-    print(n=3)
+![Try the transpose](img/ss-05.png)
 
-# A tibble: 20 x 2
-  title             obj             
-  <chr>             <list>          
-1 Mother of Dragons <named list [2]>
-2 Maester           <named list [2]>
-3 King of the North <named list [2]>
-# ... with 17 more rows
-```
+
+Common JSON Input, tidyr Rectangling API
+========================================================
+Stick the list in a table, and unnest it.
+
+![Try the transpose](img/ss-06.png)
+
+
+Common JSON Input, tidyr Rectangling API
+========================================================
+You can use `hoist()` to pick out only parts you want.
+
+![Try the transpose](img/ss-07.png)
+
 
 `tidyr` Rectangling: The Deep End Demo
 ========================================================
 ![Gnarly JSON to DataFrames in 2 simple steps](img/draw-the-rest-of-the-owl.png)
+
+
+`tidyr` Rectangling: The Deep End Demo
+========================================================
+
+![Complex code](img/ss-08.png)
+![Complex listview](img/listviewer-complex-json.png)
+
+
+`tidyr` Rectangling: The Deep End Demo
+========================================================
+![Complex code result](img/ss-09.png)
 
 
 
