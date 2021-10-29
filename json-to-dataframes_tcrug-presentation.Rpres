@@ -4,13 +4,16 @@ author: Matt Pettis (matthew.pettis@gmail.com)
 date: 2021-10-28
 autosize: true
 
+Repo for these materials: https://github.com/mpettis/tcrug-json-to-dataframes
+
+
 Who am I?
 ========================================================
 incremental: true
 
 - Matt Pettis.  Hi.
 - Sr. Data Scientist, TraneTechnology
-- Avid something-something.
+- Like to read, run, and bike.  Aspiring guitarist.
 
 
 
